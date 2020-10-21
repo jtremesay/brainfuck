@@ -354,7 +354,7 @@ fn main() {
     }
 
     // Read the input source
-    let source_data = fs::read(source_path.unwrap()).unwrap();
+    let source_data = fs::read(source_path.or(Some(&String::from("/dev/stdin"))).unwrap()).unwrap();
     let source = str::from_utf8(&source_data).unwrap();
 
     // Compile the source
