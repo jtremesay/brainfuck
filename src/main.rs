@@ -162,9 +162,7 @@ pub fn run_ast(node: &Node, state: &mut State) {
 /// Run a brainfuck source
 pub fn run_source(source: &str) {
     let ast = build_ast(parse_source(source));
-    println!("{:?}", ast);
     let ast = optimize_ast(&ast);
-    println!("{:?}", ast);
     run_ast(
         &ast,
         &mut State {
